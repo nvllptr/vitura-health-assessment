@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vitura.API", "Vitura.API\Vitura.API.csproj", "{8C079BB2-75AF-4308-8809-4F50C00CC07F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vitura.API.Tests", "Vitura.API.Tests\Vitura.API.Tests.csproj", "{D7268E0D-0ACF-4005-A98F-30E8FA2C5E26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{8C079BB2-75AF-4308-8809-4F50C00CC07F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C079BB2-75AF-4308-8809-4F50C00CC07F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C079BB2-75AF-4308-8809-4F50C00CC07F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7268E0D-0ACF-4005-A98F-30E8FA2C5E26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7268E0D-0ACF-4005-A98F-30E8FA2C5E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7268E0D-0ACF-4005-A98F-30E8FA2C5E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7268E0D-0ACF-4005-A98F-30E8FA2C5E26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
