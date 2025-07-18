@@ -1,5 +1,6 @@
 using AutoMapper;
 using Vitura.API.DataTransferObjects.PrescriptionDtos;
+using Vitura.API.Models;
 using Vitura.API.Repositories.Interfaces;
 using Vitura.API.Services.Interfaces;
 
@@ -10,10 +11,12 @@ public class PrescriptionService : IPrescriptionService
 
     private readonly IMapper _mapper;
     private readonly IPrescriptionRepository _prescriptionRepository;
+    private readonly IPatientRepository _patientRepository;
 
-    public PrescriptionService(IPrescriptionRepository prescriptionRepository, IMapper mapper)
+    public PrescriptionService(IPrescriptionRepository prescriptionRepository, IPatientRepository patientRepository, IMapper mapper)
     {
         _prescriptionRepository = prescriptionRepository;
+        _patientRepository = patientRepository;
         _mapper = mapper;
     }
 
@@ -27,16 +30,21 @@ public class PrescriptionService : IPrescriptionService
 
         return prescriptionsDto;
     }
-    
-    public List<GetPrescriptionDto>?  GetByPatientId(int patientId)
+
+    public GetPrescriptionDto? Create(CreatePrescriptionDto createPrescriptionDto)
     {
-        var prescriptions = _prescriptionRepository.GetAll(prescription => prescription.PatientId == patientId);
+        var prescription = _mapper.Map<Prescription>(createPrescriptionDto);
 
-        if (prescriptions == null) return null;
+        var patient = _patientRepository.GetById(createPrescriptionDto.PatientId);
         
-        var prescriptionsDto = _mapper.Map<List<GetPrescriptionDto>>(prescriptions);
+        if(patient == null) return null;
+        
+        var createdPrescription = _prescriptionRepository.Create(prescription);
 
-        return prescriptionsDto;
+        if (createdPrescription == null) return null;
+
+        var prescriptionDto = _mapper.Map<GetPrescriptionDto>(createdPrescription);
+
+        return prescriptionDto;
     }
-
 }

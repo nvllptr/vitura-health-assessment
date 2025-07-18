@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Vitura.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d37d0eba189237bc32bc5bf416efc96bdab8100d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a63bdea0c2954f6a64d804cc494968f691eeb49e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Vitura.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Vitura.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -10,5 +10,6 @@ public class PrescriptionProfile : Profile
     {
         CreateMap<Prescription, GetPrescriptionDto>();
         CreateMap<GetPrescriptionDto, Prescription>();
+        CreateMap<CreatePrescriptionDto, Prescription>();
     }
 }

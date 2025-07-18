@@ -1,5 +1,6 @@
 using AutoMapper;
 using Vitura.API.DataTransferObjects.PatientDtos;
+using Vitura.API.DataTransferObjects.PrescriptionDtos;
 using Vitura.API.Repositories.Interfaces;
 using Vitura.API.Services.Interfaces;
 
@@ -9,12 +10,12 @@ public class PatientService : IPatientService
 {
     private readonly IMapper _mapper;
     private readonly IPatientRepository _patientRepository;
-    private readonly IPrescriptionService _prescriptionService;
+    private readonly IPrescriptionRepository _prescriptionRepository;
 
-    public PatientService(IPatientRepository patientRepository, IPrescriptionService prescriptionService, IMapper mapper)
+    public PatientService(IPatientRepository patientRepository, IPrescriptionRepository prescriptionRepository, IMapper mapper)
     {
         _patientRepository = patientRepository;
-        _prescriptionService = prescriptionService;
+        _prescriptionRepository = prescriptionRepository;
         _mapper = mapper;
     }
     
@@ -32,9 +33,11 @@ public class PatientService : IPatientService
 
         var patientDto = _mapper.Map<GetPatientDtoLong>(patient);
         
-        var prescriptionsDto = _prescriptionService.GetByPatientId(patient.Id);
+        var prescriptions = _prescriptionRepository.GetAll(prescription => prescription.PatientId == id);
         
-        if(prescriptionsDto == null) return null;
+        if(prescriptions == null) return null;
+        
+        var prescriptionsDto = _mapper.Map<List<GetPrescriptionDto>>(prescriptions);
         patientDto.Prescriptions = prescriptionsDto;
 
         return patientDto;

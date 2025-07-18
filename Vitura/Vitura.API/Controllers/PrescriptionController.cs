@@ -22,5 +22,15 @@ public class PrescriptionController : ControllerBase
         var prescriptions = _prescriptionService.GetAll();
         if(prescriptions == null) return NotFound();
         return Ok(prescriptions);
-    } 
+    }
+    
+    [HttpPost]
+    public ActionResult<GetPrescriptionDto> Create(CreatePrescriptionDto prescription)
+    {
+        var created = _prescriptionService.Create(prescription);
+
+        if (created == null) return BadRequest();
+
+        return Ok(created);
+    }
 }
