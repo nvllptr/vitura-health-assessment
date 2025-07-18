@@ -1,4 +1,4 @@
 export const PatientDetails = () => {
 
-  return <></>
+  return (<>PatientDetails</>)
 }

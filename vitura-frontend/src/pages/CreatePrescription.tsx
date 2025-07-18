@@ -1,4 +1,4 @@
 export const CreatePrescription = () => {
 
-  return <></>
+  return (<>CreatePrescription</>)
 }
