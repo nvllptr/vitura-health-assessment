@@ -21,4 +21,13 @@ public class PatientController : ControllerBase
         var patients = _patientService.GetAll();
         return Ok(patients);
     }
+    
+    [HttpGet("{id:int}")]
+    public ActionResult<GetPatientDtoLong> GetById(int id)
+    {
+        var patient = _patientService.GetById(id);
+        if (patient == null) return BadRequest();
+
+        return Ok(patient);
+    }
 }

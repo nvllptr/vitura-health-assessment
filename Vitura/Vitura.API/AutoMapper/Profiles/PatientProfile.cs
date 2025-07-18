@@ -10,5 +10,6 @@ public class PatientProfile : Profile
     {
         CreateMap<Patient, GetPatientDtoShort>();
         CreateMap<GetPatientDtoShort, Patient>();
+        CreateMap<Patient, GetPatientDtoLong>();
     }
 }

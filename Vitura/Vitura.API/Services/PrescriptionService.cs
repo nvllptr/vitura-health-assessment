@@ -27,5 +27,16 @@ public class PrescriptionService : IPrescriptionService
 
         return prescriptionsDto;
     }
+    
+    public List<GetPrescriptionDto>?  GetByPatientId(int patientId)
+    {
+        var prescriptions = _prescriptionRepository.GetAll(prescription => prescription.PatientId == patientId);
+
+        if (prescriptions == null) return null;
+        
+        var prescriptionsDto = _mapper.Map<List<GetPrescriptionDto>>(prescriptions);
+
+        return prescriptionsDto;
+    }
 
 }

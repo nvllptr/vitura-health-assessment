@@ -5,4 +5,6 @@ namespace Vitura.API.Services.Interfaces;
 public interface IPatientService
 {
     public List<GetPatientDtoShort> GetAll();
+    
+    public GetPatientDtoLong? GetById(int id);
 }
