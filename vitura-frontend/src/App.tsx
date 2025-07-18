@@ -1,6 +1,13 @@
 import { ToastContainer } from "react-bootstrap"
 import { Provider } from "react-redux"
 import { Route, Routes, useLocation } from "react-router-dom"
+import store from "./store"
+import { Patients } from "./pages/Patients"
+import { PatientDetails } from "./pages/PatientDetails"
+import { routes } from "./routes"
+import { CreatePrescription } from "./pages/CreatePrescription"
+import { NavbarLayout } from "./layouts/NavbarLayout"
+import { ModalLayout } from "./layouts/ModalLayout"
 
 function App() {
   const location = useLocation()
