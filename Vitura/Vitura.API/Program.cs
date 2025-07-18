@@ -1,4 +1,8 @@
 using AutoMapper;
+using Vitura.API.Repositories;
+using Vitura.API.Repositories.Interfaces;
+using Vitura.API.Services;
+using Vitura.API.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 var myAllowSpecificOrigins = "_myAllowSpecificOrigins";
@@ -7,6 +11,9 @@ var myAllowSpecificOrigins = "_myAllowSpecificOrigins";
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddSingleton<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IPatientService, PatientService>();
 
 // Automapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()
