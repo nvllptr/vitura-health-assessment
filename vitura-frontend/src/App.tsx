@@ -1,4 +1,4 @@
-import { ToastContainer } from "react-bootstrap"
+import { ToastContainer } from "react-toastify"
 import { Provider } from "react-redux"
 import { Route, Routes, useLocation } from "react-router-dom"
 import store from "./store"
