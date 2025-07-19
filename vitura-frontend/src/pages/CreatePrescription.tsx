@@ -35,7 +35,6 @@ export const CreatePrescription = () => {
 
   useEffect(() => {
     if (createPrescriptionResponse.isSuccess) {
-      console.log("HELLO", createPrescriptionResponse)
       toast.success("Successfully created prescription.")
       navigate(-1)
 
